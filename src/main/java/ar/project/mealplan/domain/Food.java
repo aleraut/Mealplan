@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Food {
@@ -15,18 +17,21 @@ public class Food {
     private String origin;
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "mealId")
+    private Meal meal;
 
     public Food(){}
 
     // Constructor
-    public Food(String name, String type, String origin, double price){
+    public Food(String name, String type, String origin, double price, Meal meal){
         super();
         this.name = name;
         this.type = type;
         this.origin = origin;
         this.price = price;
+        this.meal = meal;
     }
-
 
     // Getters and Setters
     public Long getId() {
@@ -69,10 +74,23 @@ public class Food {
         this.price = price;
     }
 
+    public Meal getMeal() {
+        return meal;
+    }
+
+    public void setMeal(Meal meal) {
+        this.meal = meal;
+    }
+
     @Override
     public String toString() {
 
-        return "Food [id =" + id + ", name =" + name + ", type =" + type + ", origin =" + origin + ", price =" + price + "]";
+        if(this.meal != null)
 
+        return "Food [id =" + id + ", name =" + name + ", type =" + type + ", origin =" + origin + ", price =" + price + ", meal=" + this.getMeal() + "]";
+
+        else
+
+        return "Food [id =" + id + ", name =" + name + ", type =" + type + ", origin =" + origin + ", price =" + price + "]";
     }
 }

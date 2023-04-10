@@ -10,6 +10,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Meal</th>
                 <th>Name</th>
                 <th>Type</th>
                 <th>Origin</th>
@@ -19,6 +20,7 @@
 
         <tbody>
             <tr th:each="food : ${foods}">
+                <td th:text="${food.meal.name}"></td>
                 <td th:text="${food.name}"></td>
                 <td th:text="${food.type}"></td>
                 <td th:text="${food.origin}"></td>

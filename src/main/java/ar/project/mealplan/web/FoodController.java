@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import ar.project.mealplan.domain.Food;
 import ar.project.mealplan.domain.FoodRepository;
+import ar.project.mealplan.domain.MealRepository;
 
 @Controller
 public class FoodController {
@@ -16,11 +17,15 @@ public class FoodController {
     @Autowired
     private FoodRepository foodRepository;
 
+    @Autowired
+    private MealRepository mealRepository;
+
     // Show all foods
     @RequestMapping(value={"/", "foodlist"})
         public String foodList(Model model) {
 
             model.addAttribute("foods", foodRepository.findAll());
+            model.addAttribute("meals", mealRepository.findAll());
 
             return "foodlist";
 
@@ -31,6 +36,7 @@ public class FoodController {
     public String addFood(Model model) {
 
         model.addAttribute("food", new Food());
+        model.addAttribute("meals", mealRepository.findAll());
 
         return "addfood";
     }
@@ -58,6 +64,7 @@ public class FoodController {
     public String editBook(@PathVariable("id") Long foodId, Model model) {
 
         model.addAttribute("food", foodRepository.findById(foodId));
+        model.addAttribute("meals", mealRepository.findAll());
 
         return "editfood";
     }

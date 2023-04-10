@@ -6,8 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface FoodRepository extends CrudRepository<Food, Long>{
 
+    List<Food> findById(String foodId);
+
     void deleteById(Long foodId);
 
     List<Food> findByName(String name);
+
+    Food findById(Food food);
+
+    void deleteById(Food food);
     
 }

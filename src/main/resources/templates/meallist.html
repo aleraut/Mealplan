@@ -5,6 +5,14 @@
     <title>Meals</title>
 </head>
 <body>
-    
+    <h1>Meals</h1>
+	<table class="table table-striped" >
+		<tr>
+            <th>Name</th>
+        </tr>	
+		<tr th:each="meal : ${meals}">
+			<td th:text="${meal.name}"></td> 
+		</tr>
+	</table>
 </body>
 </html>
