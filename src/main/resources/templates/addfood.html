@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<head>
+    <title>Add a food</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add food</h1>
+        <div class="col-md-4">
+            <form th:object="${food}" th:action="@{save}" action="#" method="post">
+
+                <label for="name">Name</label>
+                <input type="text" id="name" th:field="*{name}" class="form-control"/>
+                <br/>
+                <label for="type">Type</label>
+                <input type="text" id="type" th:field="*{type}" class="form-control"/>
+                <br/>
+                <label for="origin">Origin</label>
+                <input type="text" id="origin" th:field="*{origin}" class="form-control"/>
+                <br/>
+                <label for="price">Price</label>
+                <input type="text" id="price" th:field="*{price}" class="form-control"/>
+                <br/>
+                <div style="clear: both; display: block; height: 10px;"></div>
+
+                <input type="submit" class="btn btn-primary" value="Save">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
