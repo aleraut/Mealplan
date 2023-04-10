@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+// Repository for foods
 public interface FoodRepository extends CrudRepository<Food, Long>{
 
     List<Food> findById(String foodId);

@@ -17,10 +17,12 @@ public class Food {
     private String origin;
     private double price;
 
+    // Joining Food table to Meal table
     @ManyToOne
     @JoinColumn(name = "mealId")
     private Meal meal;
 
+    
     public Food(){}
 
     // Constructor

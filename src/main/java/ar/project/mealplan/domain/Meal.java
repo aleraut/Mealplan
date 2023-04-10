@@ -18,6 +18,7 @@ public class Meal {
     private Long mealId;
     private String name;
 
+    // Joining list of foods to meal table
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "meal")
     private List<Food> foods;

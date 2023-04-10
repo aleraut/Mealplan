@@ -12,6 +12,7 @@ public class MealController {
     @Autowired
     MealRepository mealRepository;
 
+    // Show all meals
     @RequestMapping("/meallist")
     public String mealList(Model model) {
 
