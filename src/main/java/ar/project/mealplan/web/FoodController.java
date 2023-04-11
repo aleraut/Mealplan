@@ -20,6 +20,12 @@ public class FoodController {
     @Autowired
     private MealRepository mealRepository;
 
+    // login
+    @RequestMapping(value="/login")
+    public String login() {
+        return "login";
+    }
+
     // Show all foods
     @RequestMapping(value={"/", "foodlist"})
         public String foodList(Model model) {
