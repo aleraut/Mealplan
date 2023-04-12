@@ -16,6 +16,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Day</th>
                 <th>Meal</th>
                 <th>Name</th>
                 <th>Main ingredient</th>
@@ -26,6 +27,7 @@
 
         <tbody>
             <tr th:each="food : ${foods}">
+                <td th:text="${food.paiva}"></td>
                 <td th:text="${food.meal.name}"></td>
                 <td th:text="${food.name}"></td>
                 <td th:text="${food.ingredient}"></td>

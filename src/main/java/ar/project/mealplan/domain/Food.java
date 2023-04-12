@@ -16,6 +16,7 @@ public class Food {
     private String ingredient;
     private double calories;
     private double price;
+    private String paiva;
 
     // Joining Food table to Meal table
     @ManyToOne
@@ -26,12 +27,13 @@ public class Food {
     public Food(){}
 
     // Constructor
-    public Food(String name, String ingredient, double calories, double price, Meal meal){
+    public Food(String name, String ingredient, double calories, double price, String paiva, Meal meal){
         super();
         this.name = name;
         this.ingredient = ingredient;
         this.calories = calories;
         this.price = price;
+        this.paiva = paiva;
         this.meal = meal;
     }
 
@@ -76,6 +78,14 @@ public class Food {
         this.price = price;
     }
 
+    public String getPaiva() {
+        return paiva;
+    }
+
+    public void setPaiva(String paiva) {
+        this.paiva = paiva;
+    }
+
     public Meal getMeal() {
         return meal;
     }
@@ -89,10 +99,10 @@ public class Food {
 
         if(this.meal != null)
 
-        return "Food [id =" + id + ", name =" + name + ", ingredient =" + ingredient + ", calories =" + calories + ", price =" + price + ", meal=" + this.getMeal() + "]";
+        return "Food [id =" + id + ", name =" + name + ", ingredient =" + ingredient + ", calories =" + calories + ", price =" + price + ", paiva =" + paiva + ", meal=" + this.getMeal() + "]";
 
         else
 
-        return "Food [id =" + id + ", name =" + name + ", ingredient =" + ingredient + ", calories =" + calories + ", price =" + price + "]";
+        return "Food [id =" + id + ", name =" + name + ", ingredient =" + ingredient + ", calories =" + calories + ", price =" + price + ", paiva =" + paiva + "]";
     }
 }

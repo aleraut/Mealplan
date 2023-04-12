@@ -34,9 +34,9 @@ public class MealplanApplication {
 			mealRepository.save(new Meal("Snacks"));
 
 			// Create a few example foods to FoodRepository
-			foodRepository.save(new Food("Banana Cake", "Banana", 1200, 2.10, mealRepository.findByName("Breakfast").get(0)));
-			foodRepository.save(new Food("Chicken Wings", "Chicken", 1600.50, 4.50, mealRepository.findByName("Dinner").get(0)));
-			foodRepository.save(new Food("Tomato Soup", "Tomato", 745.20, 1.70, mealRepository.findByName("Lunch").get(0)));
+			foodRepository.save(new Food("Banana Cake", "Banana", 1200, 2.10, "Monday", mealRepository.findByName("Breakfast").get(0)));
+			foodRepository.save(new Food("Chicken Wings", "Chicken", 1600.50, 4.50, "Tuesday", mealRepository.findByName("Dinner").get(0)));
+			foodRepository.save(new Food("Tomato Soup", "Tomato", 745.20, 1.70, "Sunday", mealRepository.findByName("Lunch").get(0)));
 
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
