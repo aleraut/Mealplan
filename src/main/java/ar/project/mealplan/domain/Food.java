@@ -13,8 +13,8 @@ public class Food {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String type;
-    private String origin;
+    private String ingredient;
+    private double calories;
     private double price;
 
     // Joining Food table to Meal table
@@ -26,11 +26,11 @@ public class Food {
     public Food(){}
 
     // Constructor
-    public Food(String name, String type, String origin, double price, Meal meal){
+    public Food(String name, String ingredient, double calories, double price, Meal meal){
         super();
         this.name = name;
-        this.type = type;
-        this.origin = origin;
+        this.ingredient = ingredient;
+        this.calories = calories;
         this.price = price;
         this.meal = meal;
     }
@@ -52,20 +52,20 @@ public class Food {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getIngredient() {
+        return ingredient;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
     }
 
-    public String getOrigin() {
-        return origin;
+    public double getCalories() {
+        return calories;
     }
 
-    public void setOrigin(String origin) {
-        this.origin = origin;
+    public void setCalories(double calories) {
+        this.calories = calories;
     }
 
     public double getPrice() {
@@ -89,10 +89,10 @@ public class Food {
 
         if(this.meal != null)
 
-        return "Food [id =" + id + ", name =" + name + ", type =" + type + ", origin =" + origin + ", price =" + price + ", meal=" + this.getMeal() + "]";
+        return "Food [id =" + id + ", name =" + name + ", ingredient =" + ingredient + ", calories =" + calories + ", price =" + price + ", meal=" + this.getMeal() + "]";
 
         else
 
-        return "Food [id =" + id + ", name =" + name + ", type =" + type + ", origin =" + origin + ", price =" + price + "]";
+        return "Food [id =" + id + ", name =" + name + ", ingredient =" + ingredient + ", calories =" + calories + ", price =" + price + "]";
     }
 }

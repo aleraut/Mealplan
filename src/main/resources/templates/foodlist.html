@@ -5,7 +5,7 @@
     <title>Foods</title>
 </head>
 <body>
-    <h1>Foods</h1>
+    <h1>Meal plan</h1>
 
     <div class="col-md-4" style="padding:20px 0">
         <form th:action="@{/logout}" method="post">
@@ -18,8 +18,8 @@
             <tr>
                 <th>Meal</th>
                 <th>Name</th>
-                <th>Type</th>
-                <th>Origin</th>
+                <th>Main ingredient</th>
+                <th>Calories</th>
                 <th>Price</th>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
             <tr th:each="food : ${foods}">
                 <td th:text="${food.meal.name}"></td>
                 <td th:text="${food.name}"></td>
-                <td th:text="${food.type}"></td>
-                <td th:text="${food.origin}"></td>
+                <td th:text="${food.ingredient}"></td>
+                <td th:text="${food.calories}"></td>
                 <td th:text="${food.price}"></td>
 
                 <td><a th:href="@{/delete/{id}(id=${food.id})}" class="btn btn-xs btn-danger">Delete</a></td>
