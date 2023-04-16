@@ -22,6 +22,7 @@
                 <th>Main ingredient</th>
                 <th>Calories</th>
                 <th>Price</th>
+                <th>Completed</th>
             </tr>
         </thead>
 
@@ -33,6 +34,11 @@
                 <td th:text="${food.ingredient}"></td>
                 <td th:text="${food.calories}"></td>
                 <td th:text="${food.price}"></td>
+                <td>
+                    <form th:action="@{/complete/{id}(id=${food.id})}" method="post">
+                        <input type="checkbox" name="completed" th:checked="${food.completed}" onchange="this.form.submit()"/>
+                    </form>
+                </td>
 
                 <td><a th:href="@{/delete/{id}(id=${food.id})}" class="btn btn-xs btn-danger">Delete</a></td>
                     

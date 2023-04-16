@@ -18,6 +18,13 @@ public class Food {
     private double price;
     private String paiva;
 
+    // New boolean for completed-checkmark
+    private boolean completed;
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
     // Joining Food table to Meal table
     @ManyToOne
     @JoinColumn(name = "mealId")
@@ -92,6 +99,10 @@ public class Food {
 
     public void setMeal(Meal meal) {
         this.meal = meal;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     @Override

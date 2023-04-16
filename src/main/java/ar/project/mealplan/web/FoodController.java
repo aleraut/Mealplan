@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.project.mealplan.domain.Food;
 import ar.project.mealplan.domain.FoodRepository;
@@ -80,5 +81,17 @@ public class FoodController {
 
         return "editfood";
     }
+
+    // Mark a food as completed
+    @RequestMapping(value = "/complete/{id}", method = RequestMethod.POST)
+    public String completeFood(@PathVariable("id") Long foodId, @RequestParam("completed") boolean completed, Model model) {
+
+        Food food = foodRepository.findById(foodId).orElseThrow(() -> new IllegalArgumentException("Invalid food ID"));
+
+        food.setCompleted(completed);
+        foodRepository.save(food);
+
+    return "redirect:/foodlist";
+}
     
 }
